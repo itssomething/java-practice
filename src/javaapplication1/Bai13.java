@@ -6,7 +6,6 @@
 package javaapplication1;
 
 import java.util.Scanner;
-import static javaapplication1.Bai12.chuanHoa;
 
 /**
  *
@@ -15,34 +14,50 @@ import static javaapplication1.Bai12.chuanHoa;
 public class Bai13 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        String s = in.nextLine();
-        int n = Integer.parseInt(s);
-        String[] store = new String[n];
-        
-        while(n-- >0){
-            String ss = in.nextLine();
-//            chuanHoa(ss);
-            store[n] = getName(ss);
-            System.out.println(chuanHoa(ss));
+        int t = in.nextInt();
+        int count = 0;
+        while(t-- >0){
+            int n = in.nextInt();
+            int k = in.nextInt();
+            
+            int[] currentArr = new int[n];
+            
+            for(int i=0;i<n;i++){
+                currentArr[i] = 0;
+            }
+            
+            for(int i =0;i<n*n;i++){
+                if(check(currentArr, k)){
+                    printArr(currentArr);
+                }
+                currentArr = nextArr(currentArr);
+            }
         }
     }
+    static void printArr(int[] a){
+        for(int i=0;i<a.length;i++){
+            System.out.print(a[i]);            
+        }
+        System.out.print("\n");
+    }
     
-    static String chuanHoa(String s){
-        s = s.replaceAll("\\s+", " ");
-
-        return s;
+    static int[] nextArr(int[] a){
+        for(int i=a.length-1;i>=0;i--){
+            if(a[i]==1)
+                a[i]=0;
+            else{
+                a[i]=1;
+                break;
+            }
+        }
+        return a;
     }
-    static String getName(String s){
-        String[] ss = s.replaceAll("\\s+", " ").split(" ");
-        return ss[ss.length-1].toLowerCase();
-    }
-    static int getNum(
-    )
-    static String mail(String s, int num){
-        String arr[] = s.split(" ");
-        String first_name = arr[arr.length-1];
-        String last = arr[0].split("")[0];
-        String middle = arr[1].split("")[0];
-        String result = first_name + last+ middle + "@ptit.edu.vn";
+    static boolean check(int[] a, int k){
+        int count = 0;
+        for(int i=0;i<a.length;i++){
+            if(a[i] == 1)
+                count++;
+        }
+        return count == k;
     }
 }
