@@ -26,7 +26,7 @@ public class Bai13 {
                 currentArr[i] = 0;
             }
             
-            for(int i =0;i<n*n;i++){
+            for(int i =0;i<Math.pow(2,n);i++){
                 if(check(currentArr, k)){
                     printArr(currentArr);
                 }
@@ -38,7 +38,7 @@ public class Bai13 {
         for(int i=0;i<a.length;i++){
             System.out.print(a[i]);            
         }
-        System.out.print("\n");
+        System.out.println();
     }
     
     static int[] nextArr(int[] a){
