@@ -25,9 +25,11 @@ public class Bai14 {
                 count++;
             arr = gen(arr);
         }
+        
         for(int i=0;i<n;i++){
-            arr[i]=0;
+            arr[i]=1;
         }
+        
         System.out.println(count);
         for(int i=0;i<Math.pow(2, n);i++){
             if(check(arr))
@@ -43,18 +45,19 @@ public class Bai14 {
                 System.out.print("A");
             else
                 System.out.print("B");
+//            System.out.print(a[i]);
         }
         System.out.println();
     }
 
     static int[] gen(int[] a){
         for(int i=a.length-1;i>=0;i--){
-            if(a[i]==0){
-                a[i]=1;
+            if(a[i]==1){
+                a[i]=0;
                 break;
             }
             else
-                a[i]=0;            
+                a[i]=1;            
         }
         return a;
     }

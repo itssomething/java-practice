@@ -23,14 +23,17 @@ public class SinhToHop {
         for(int i =0;i<k;i++){
             a[i] = i+1;
         }
+//        a = new int[]{1,3,5};
+        
         int i=k-1;
         while(a[0]<=n-k+1){
+            print();
+
             while(i>0 && a[i] == n-k+i+1){
                 i--;
             }
-            print();
             a[i]++;
-            while(i<k){
+            while(i<k-1){
                 a[i+1]=a[i]+1;
                 i++;
             }
